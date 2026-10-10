@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Into The Deep for Mac: local saves, optional cloud progress, account deletion, privacy and support.">
+  <meta name="color-scheme" content="light">
+  <title>Privacy &amp; support · Into The Deep · E² Studios</title>
+  <style>
+    :root{--ink:#173b3c;--muted:#405e5d;--ocean:#103e43;--teal:#00685e;--sand:#f6f3e9;--white:#fffef9;--line:#c6d4cd;--wash:#e9efea;--gold:#f1cf85;--radius:18px}
+    *{box-sizing:border-box}
+    html{scroll-padding-top:1.5rem}
+    body{margin:0;background:var(--sand);color:var(--ink);font:1rem/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:var(--teal);text-underline-offset:.2em;text-decoration-thickness:.08em}
+    a:hover{text-decoration-thickness:.15em}
+    a:focus-visible{outline:3px solid #b8770b;outline-offset:5px;border-radius:2px}
+    .skip{position:absolute;left:1rem;top:-6rem;z-index:3;background:var(--white);padding:.8rem 1rem;color:var(--ink)}
+    .skip:focus{top:1rem}
+    .wrap{width:min(1120px,calc(100% - 3rem));margin-inline:auto}
+    .masthead{background:var(--ocean);color:var(--white);position:relative;overflow:hidden;padding:1.6rem 0 3.5rem}
+    .masthead:after{content:"";position:absolute;width:60rem;height:60rem;right:-29rem;bottom:-55rem;border-radius:50%;border:1px solid #ffffff38;box-shadow:0 0 0 24px #ffffff09,0 0 0 66px #ffffff06;pointer-events:none}
+    .brand{display:flex;align-items:center;gap:.7rem;margin-bottom:3.6rem}
+    .brand-mark{display:grid;place-items:center;flex:0 0 44px;height:44px;border:1px solid #80b9aa;border-radius:12px;color:#9ce6cf;font-size:1.35rem;font-weight:800;line-height:1}
+    .brand-name{font-size:.9rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+    .brand-note{display:block;margin-top:.05rem;color:#bdd4cf;font-size:.78rem;letter-spacing:.02em;font-weight:400;text-transform:none}
+    .eyebrow{margin:0 0 .65rem;color:var(--gold);font-size:.76rem;font-weight:750;letter-spacing:.15em;text-transform:uppercase}
+    h1,h2,h3{line-height:1.16}
+    h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.6rem,6vw,4.7rem);letter-spacing:-.045em;margin:0 0 1rem;max-width:15ch}
+    .intro{margin:0;max-width:46rem;color:#d9e8e2;font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.65}
+    .version-note{margin:1.2rem 0 0;color:#bdd4cf;font-size:.85rem}
+    .pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+    .pill{border:1px solid #80b9aa7a;color:#e7f5ee;padding:.4rem .8rem;border-radius:100px;font-size:.8rem}
+    .page-layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:3.2rem;padding-top:2.7rem;padding-bottom:4rem;align-items:start}
+    .contents{position:sticky;top:1.5rem;font-size:.88rem}
+    .contents p{margin:0 0 .8rem;font-size:.72rem;font-weight:750;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .contents ul{list-style:none;padding:0;margin:0;border-left:1px solid var(--line)}
+    .contents a{display:block;padding:.45rem 0 .45rem 1rem;text-decoration:none;color:var(--muted)}
+    .contents a:hover{color:var(--teal);text-decoration:underline}
+    article{min-width:0}
+    section{margin-bottom:2.8rem;scroll-margin-top:1.6rem}
+    section:last-child{margin-bottom:0}
+    h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1.8rem,3vw,2.3rem);letter-spacing:-.025em;margin:0 0 1rem}
+    h3{font-size:1.02rem;margin:0 0 .5rem}
+    p{margin:.75rem 0}
+    .section-number{display:block;margin:0 0 .45rem;color:var(--teal);font-size:.75rem;font-weight:750;letter-spacing:.12em}
+    .lead{font-size:1.06rem}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.35rem 0}
+    .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem}
+    .card p{font-size:.94rem;margin:.55rem 0 0}
+    .label{display:block;margin-bottom:.65rem;color:var(--teal);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .note{padding:1rem 1.2rem;background:var(--wash);border-left:3px solid var(--teal);border-radius:0 10px 10px 0;font-size:.94rem;margin:1.2rem 0}
+    .note p{margin:0}
+    .data-list{margin:1.2rem 0;border-top:1px solid var(--line)}
+    .data-row{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:1.4rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+    dt{font-weight:700}
+    dd{margin:0;font-size:.96rem}
+    .steps{list-style:none;padding:0;margin:1.3rem 0;counter-reset:step}
+    .steps li{position:relative;counter-increment:step;padding:.2rem 0 .9rem 3rem}
+    .steps li:before{content:counter(step);position:absolute;left:0;top:0;display:grid;place-items:center;width:2rem;height:2rem;border:1px solid var(--line);background:var(--white);color:var(--teal);font-size:.85rem;font-weight:750;border-radius:50%}
+    .steps li:last-child{padding-bottom:0}
+    .detail-list{padding-left:1.2rem}
+    .detail-list li{padding-left:.2rem;margin:.6rem 0}
+    .contact{background:var(--ocean);color:var(--white);border-radius:var(--radius);padding:1.6rem 1.8rem}
+    .contact h2{font-size:1.85rem;margin-bottom:.6rem}
+    .contact p{color:#d9e8e2}
+    .contact a{color:#a4efd4;overflow-wrap:anywhere;font-weight:650}
+    .contact .small{font-size:.87rem;margin-bottom:0}
+    footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1.5rem 0 2rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .footer-inner p{margin:0}
+    @media(max-width:900px){.page-layout{grid-template-columns:1fr;gap:2rem}.contents{position:static}.contents ul{display:flex;flex-wrap:wrap;gap:.35rem .5rem;border:0}.contents a{padding:.35rem .7rem;border:1px solid var(--line);border-radius:100px}.brand{margin-bottom:2.5rem}}
+    @media(max-width:560px){.wrap{width:calc(100% - 2rem)}.masthead{padding-top:1.2rem;padding-bottom:2.6rem}.cards{grid-template-columns:1fr}.data-row{grid-template-columns:1fr;gap:.35rem}.page-layout{padding-top:2rem}.contact{padding:1.35rem}.pill{font-size:.76rem}.contents a{padding:.4rem .7rem}section{margin-bottom:2.4rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{body{background:#fff;color:#000;font-size:10pt}.masthead{background:#fff;color:#000;padding:0 0 1rem}.masthead:after,.pills,.contents,.skip{display:none}.wrap{width:100%}.brand{margin-bottom:1rem}.brand-mark{border-color:#000;color:#000}.brand-note,.eyebrow,.intro,.version-note{color:#333}h1{font-size:28pt;max-width:none}.page-layout{display:block;padding:1rem 0}.cards{break-inside:avoid}.card,.note,.contact{background:#fff;color:#000;border:1px solid #888}.contact p,.contact a{color:#000}h2{break-after:avoid}footer{padding-top:1rem}.footer-inner{display:block}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to privacy information</a>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="brand" aria-label="E squared Studios">
+        <span class="brand-mark" aria-hidden="true">E²</span>
+        <span class="brand-name">E² Studios<span class="brand-note">Into The Deep</span></span>
+      </div>
+      <p class="eyebrow">Into The Deep for Mac</p>
+      <h1>Privacy &amp; support</h1>
+      <p class="intro">Your island, your voyage. Here is what stays on your device, what optional cloud features send, and how to remove your online account.</p>
+      <p class="version-note">Mac preview · Last updated 9 October 2026</p>
+      <div class="pills" aria-label="At a glance">
+        <span class="pill">Play without an account</span>
+        <span class="pill">Confirm each cloud transfer</span>
+        <span class="pill">Manual grip controls</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page-layout">
+    <nav class="contents" aria-label="On this page">
+      <p>On this page</p>
+      <ul>
+        <li><a href="#local">Local play</a></li>
+        <li><a href="#cloud">Optional cloud progress</a></li>
+        <li><a href="#deletion">Delete an account</a></li>
+        <li><a href="#camera-audio">Camera &amp; audio</a></li>
+        <li><a href="#retention">Security &amp; retention</a></li>
+        <li><a href="#support">Contact &amp; support</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <article aria-label="Into The Deep Mac privacy information">
+        <section id="local" aria-labelledby="local-title">
+          <span class="section-number" aria-hidden="true">01 / LOCAL PLAY</span>
+          <h2 id="local-title">Start playing without signing in.</h2>
+          <p class="lead">Into The Deep can be played and saved locally without an account.</p>
+          <p>Your voyages, local backups and archives, preferences, character customization and saved item-grip poses are stored on your device. Quitting the game does not itself upload these files.</p>
+          <div class="note"><p>Signing out or deleting an online account leaves your offline files in place. Remove unwanted local copies separately.</p></div>
+        </section>
+
+        <section id="cloud" aria-labelledby="cloud-title">
+          <span class="section-number" aria-hidden="true">02 / OPTIONAL CLOUD PROGRESS</span>
+          <h2 id="cloud-title">Choose when a voyage is transferred.</h2>
+          <p>Cloud accounts are optional. Signing in checks your cloud status; it does not automatically upload or replace your voyage. Cloud progress uses manual, confirmed copies. Continuous synchronization and playable cooperative multiplayer are not included in this Mac preview.</p>
+          <dl class="data-list">
+            <div class="data-row"><dt>Account details</dt><dd>Your chosen username and password are sent over HTTPS to the Supabase-backed account service for registration or authentication. An account identifier links your cloud progress to your account. The game does not write your typed password to preferences or voyage files; session credentials stay in running-process memory. Username accounts have no email password recovery.</dd></div>
+            <div class="data-row"><dt>Confirmed upload</dt><dd>Only a confirmed upload sends a saved-voyage copy. It includes your game-world position, inventory, survival status, camp and world changes, and discoveries. Game-world position is not your real geographic location. Character appearance and saved item-grip poses remain in separate local files.</dd></div>
+            <div class="data-row"><dt>Confirmed download</dt><dd>A download needs separate confirmation and can replace the current local voyage after its appropriate backup or archive. Review the transfer before continuing.</dd></div>
+          </dl>
+        </section>
+
+        <section id="deletion" aria-labelledby="deletion-title">
+          <span class="section-number" aria-hidden="true">03 / ACCOUNT DELETION</span>
+          <h2 id="deletion-title">Remove your online account in the game.</h2>
+          <ol class="steps">
+            <li>Open <strong>Cloud voyage</strong> from the title or pause menu and sign in.</li>
+            <li>Choose <strong>Delete account</strong> and read the permanent-deletion warning.</li>
+            <li>Enter your current password and acknowledge the warning.</li>
+            <li>Select <strong>Permanently delete account</strong> to submit the request.</li>
+          </ol>
+          <p>An active offline voyage must save successfully before the request is sent. Backing out before submission does not delete the account.</p>
+          <div class="cards">
+            <div class="card"><span class="label">Removed after success</span><h3>Online account and progress</h3><p>Successful deletion removes your online authentication account, profile, solo cloud voyage and every shared room or checkpoint involving your account as host or current or former participant. Those shared sessions end, and the checkpoint is removed as a whole. Your username may become available again.</p></div>
+            <div class="card"><span class="label">Kept separately</span><h3>Local copies and other accounts</h3><p>Your offline voyages, backups, archives, appearance, grip presets and settings remain on your device. Other players’ independent accounts, solo cloud voyages and unrelated rooms remain. The shared-record deletion protection does not mean playable co-op is available.</p></div>
+          </div>
+          <h3>If the connection is interrupted</h3>
+          <p>A timeout or cancellation after submission can leave the result unknown, even if the server completed deletion. The game clears its session and explains the uncertainty. If the account still exists, sign in again and review deletion; the game does not automatically recreate it. If session revocation succeeds but deletion fails, the account data remains and you may need to sign in again.</p>
+          <p>The service reauthenticates the account and revokes refresh sessions before hard deletion. Previously issued access tokens do not become instantly invalid. Current cloud and room queries reject a deleted account’s missing profile or membership, but an already authorized Realtime connection may retain cached permissions until refresh or expiry. Instant connection eviction is not promised.</p>
+        </section>
+
+        <section id="camera-audio" aria-labelledby="camera-title">
+          <span class="section-number" aria-hidden="true">04 / CAMERA &amp; AUDIO</span>
+          <h2 id="camera-title">Manual poses. Supplied voices.</h2>
+          <div class="cards">
+            <div class="card"><h3>Grip pose studio</h3><p>The Mac grip studio uses manual hand and item sliders. These controls do not access your camera. Live camera hand tracking is not available in this preview.</p></div>
+            <div class="card"><h3>In-game voice clips</h3><p>The game plays supplied offline voice clips. It does not record your microphone for those voices, send player audio to ElevenLabs or generate those voices online during play.</p></div>
+          </div>
+        </section>
+
+        <section id="retention" aria-labelledby="retention-title">
+          <span class="section-number" aria-hidden="true">05 / SECURITY &amp; RETENTION</span>
+          <h2 id="retention-title">What deletion does—and what can remain.</h2>
+          <h3>Abuse prevention</h3>
+          <p>To limit abusive account and deletion requests, the service stores HMAC-derived account and IP buckets with attempt counts and window times. This table does not store raw IP addresses or passwords. These records are pseudonymous, rather than irreversibly anonymous, and can remain after account deletion.</p>
+          <p>Rows older than two days are removed when a subsequent account attempt runs cleanup. This is lazy cleanup, so it does not guarantee removal within 48 hours.</p>
+          <h3>Provider processing</h3>
+          <p>Supabase and network infrastructure may process operational and authentication logs and backups under their applicable settings and policies. Their precise retention and backup-removal schedules have not been established for this notice. Successful account deletion removes the live application and authentication records described above; it does not promise that every provider log or backup disappears immediately.</p>
+          <h3>Game services</h3>
+          <p>The current game configuration disables Unity runtime statistics submission, Analytics, Engine Diagnostics and other Unity services. This configuration does not imply that the cloud or network infrastructure processes no operational information.</p>
+          <div class="note"><p>Local copies remain until you remove them. Deleting an online account does not erase copies stored on another device.</p></div>
+        </section>
+
+        <section id="support" class="contact" aria-labelledby="support-title">
+          <h2 id="support-title">Questions or a rough landing?</h2>
+          <p>For privacy questions and game support, contact:</p>
+          <p><a href="mailto:ethanwfehler@gmail.com">ethanwfehler@gmail.com</a></p>
+          <p class="small">For a game issue, include your game version, Mac model, macOS version and what happened. A screenshot can help. Please leave passwords, sign-in tokens and other sensitive information out of your message.</p>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p><strong>E² Studios</strong> · Into The Deep for Mac</p>
+      <p>Publisher: MISTY BETH FEHLER</p>
+      <p><a href="#main">Back to privacy information</a></p>
+    </div>
+  </footer>
+</body>
+</html>
