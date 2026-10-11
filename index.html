@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Into The Deep for Mac: local saves, optional cloud progress, account deletion, privacy and support.">
+  <meta name="description" content="Into The Deep for Mac, iPhone and iPad: local saves, optional iCloud and account progress, privacy and support.">
   <meta name="color-scheme" content="light">
   <title>Privacy &amp; support · Into The Deep · E² Studios</title>
   <style>
@@ -82,13 +82,13 @@
         <span class="brand-mark" aria-hidden="true">E²</span>
         <span class="brand-name">E² Studios<span class="brand-note">Into The Deep</span></span>
       </div>
-      <p class="eyebrow">Into The Deep for Mac</p>
+      <p class="eyebrow">Into The Deep for Mac, iPhone &amp; iPad</p>
       <h1>Privacy &amp; support</h1>
       <p class="intro">Your island, your voyage. Here is what stays on your device, what optional cloud features send, and how to remove your online account.</p>
-      <p class="version-note">Mac preview · Last updated 9 October 2026</p>
+      <p class="version-note">Apple device beta · Last updated 11 October 2026</p>
       <div class="pills" aria-label="At a glance">
         <span class="pill">Play without an account</span>
-        <span class="pill">Confirm each cloud transfer</span>
+        <span class="pill">Optional iCloud save copies</span>
         <span class="pill">Manual grip controls</span>
       </div>
     </div>
@@ -108,24 +108,31 @@
     </nav>
 
     <main id="main" tabindex="-1">
-      <article aria-label="Into The Deep Mac privacy information">
+      <article aria-label="Into The Deep Apple device privacy information">
         <section id="local" aria-labelledby="local-title">
           <span class="section-number" aria-hidden="true">01 / LOCAL PLAY</span>
           <h2 id="local-title">Start playing without signing in.</h2>
           <p class="lead">Into The Deep can be played and saved locally without an account.</p>
-          <p>Your voyages, local backups and archives, preferences, character customization and saved item-grip poses are stored on your device. Quitting the game does not itself upload these files.</p>
+          <p>Your voyages, local backups and archives, preferences, character customization and saved item-grip poses are stored on your device. Local play does not require uploads. The optional cloud controls described below determine whether a saved-voyage copy is sent or a private co-op session is started.</p>
           <div class="note"><p>Signing out or deleting an online account leaves your offline files in place. Remove unwanted local copies separately.</p></div>
         </section>
 
         <section id="cloud" aria-labelledby="cloud-title">
           <span class="section-number" aria-hidden="true">02 / OPTIONAL CLOUD PROGRESS</span>
           <h2 id="cloud-title">Choose when a voyage is transferred.</h2>
-          <p>Cloud accounts are optional. Signing in checks your cloud status; it does not automatically upload or replace your voyage. Cloud progress uses manual, confirmed copies. Continuous synchronization and playable cooperative multiplayer are not included in this Mac preview.</p>
+          <p>Cloud accounts are optional. Signing in checks your cloud status; it does not automatically upload or replace your voyage. Cloud progress uses manual, confirmed copies. These account transfers are separate from the optional iCloud feature below. Private co-op is a separate, explicit create/join action and is never started just by signing in.</p>
           <dl class="data-list">
             <div class="data-row"><dt>Account details</dt><dd>Your chosen username and password are sent over HTTPS to the Supabase-backed account service for registration or authentication. An account identifier links your cloud progress to your account. The game does not write your typed password to preferences or voyage files; session credentials stay in running-process memory. Username accounts have no email password recovery.</dd></div>
-            <div class="data-row"><dt>Confirmed upload</dt><dd>Only a confirmed upload sends a saved-voyage copy. It includes your game-world position, inventory, survival status, camp and world changes, and discoveries. Game-world position is not your real geographic location. Character appearance and saved item-grip poses remain in separate local files.</dd></div>
+            <div class="data-row"><dt>Confirmed upload</dt><dd>Only a confirmed upload sends a saved-voyage copy. It includes your game-world position, inventory, survival status, camp and world changes, and discoveries. Game-world position is not your real geographic location. This solo-voyage upload does not include character appearance or saved item-grip poses.</dd></div>
             <div class="data-row"><dt>Confirmed download</dt><dd>A download needs separate confirmation and can replace the current local voyage after its appropriate backup or archive. Review the transfer before continuing.</dd></div>
           </dl>
+          <h3>Optional private co-op</h3>
+          <p>Creating or joining a private two-person room sends your game account identifier, chosen display name, character appearance, in-game position and actions, inventory and survival needs through the Supabase-backed service. The other room member receives the shared game state and your character’s appearance and actions. These positions describe the game world, not your real geographic location. Camera images, microphone audio and saved custom grip presets are not sent.</p>
+          <p>The host’s account keeps the shared island checkpoint, including each survivor’s separate supplies and the shared camps, resources, wildlife and boats. The game also keeps an account/room-scoped local copy. Shared progress never replaces the ordinary solo voyage. Private invitation codes should be shared only with your intended co-op partner. Rooms support two members and expire after 24 hours; closing or expiring a room ends its live access but does not promise immediate deletion of provider logs or backups. The host must stay connected for play to continue.</p>
+          <h3>Optional iCloud save copies</h3>
+          <p>iCloud saves are off until you enable them in <strong>iCloud saves</strong>. When enabled, successful local saves can publish immutable voyage copies to the game’s private iCloud Documents container under your current Apple account. No separate game account is required. The copies include game-world position, inventory, survival needs, camp, resources and discoveries; appearance, grip presets and passwords are not included.</p>
+          <p>The game lists up to 48 recent copies. Select and review a copy, then explicitly confirm restoring it; receiving a copy never automatically replaces the active voyage. Before restoration, the game preserves the current local save and backup as separate local archives. Apple delivery may be delayed or unavailable. A locally accepted copy does not prove that another device has received it.</p>
+          <p>Disabling iCloud saves stops future queued copies but does not remove copies already written, including a write already in progress. The game does not automatically delete older iCloud copies. iCloud storage, account access and provider retention follow your Apple account settings and Apple’s applicable policies. Deleting the separate Supabase game account does not delete iCloud or local files.</p>
         </section>
 
         <section id="deletion" aria-labelledby="deletion-title">
@@ -175,7 +182,7 @@
           <h2 id="support-title">Questions or a rough landing?</h2>
           <p>For privacy questions and game support, contact:</p>
           <p><a href="mailto:ethanwfehler@gmail.com">ethanwfehler@gmail.com</a></p>
-          <p class="small">For a game issue, include your game version, Mac model, macOS version and what happened. A screenshot can help. Please leave passwords, sign-in tokens and other sensitive information out of your message.</p>
+          <p class="small">For a game issue, include your game version, device model, operating-system version and what happened. A screenshot can help. Please leave passwords, sign-in tokens and other sensitive information out of your message.</p>
         </section>
       </article>
     </main>
@@ -183,7 +190,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <p><strong>E² Studios</strong> · Into The Deep for Mac</p>
+      <p><strong>E² Studios</strong> · Into The Deep for Mac, iPhone &amp; iPad</p>
       <p>Publisher: MISTY BETH FEHLER</p>
       <p><a href="#main">Back to privacy information</a></p>
     </div>
